@@ -1,11 +1,17 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
+struct Persona {
+    string nombre;
+    int edad;
+};
+
 int main(){
-    char letra= 'A';
-    char *puntero= &letra;
-    cout<< (int *) &letra << endl;
-    cout<< (int *) puntero << endl;
-    cout << *puntero;
+    Persona *p = new Persona();
+    p->nombre = "Noe";
+    p->edad = 23; 
+    cout << p->nombre << endl; 
+    cout << p->edad;  
 }
