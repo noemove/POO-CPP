@@ -15,7 +15,7 @@ int main(){
     cout << "x como un numero : " << (char) x.numero << endl;
     cout << "x como una letra : " << x.letra << endl; 
 
-    enum dias_semana {lunes, martes, miercoles};
+    enum dias_semana {lunes = 'l', martes= 'm', miercoles= 'y'};
     dias_semana dia= martes;
 
     cout << dia;
