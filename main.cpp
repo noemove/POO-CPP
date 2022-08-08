@@ -12,7 +12,7 @@ int main(){
 
     numero_letra x = {'a'};
 
-    cout << "x como un numero : " << x.numero << endl;
+    cout << "x como un numero : " << (char) x.numero << endl;
     cout << "x como una letra : " << x.letra; 
 
 }
