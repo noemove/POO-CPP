@@ -3,21 +3,22 @@
 
 using namespace std;
 
+class Persona {
+public:
+    string nombre= "Diana";
+    int edad= 22;
+    void Saludar(){
+        cout << nombre << " esta saludando" << endl;
+    }
+
+};
 
 int main(){
-    union numero_letra {
-        int numero;
-        char letra;
-    };
+    Persona *p= new Persona();
+    Persona *p2= new Persona();
 
-    numero_letra x = {'a'};
+    p2->nombre = "Noe"; 
 
-    cout << "x como un numero : " << (char) x.numero << endl;
-    cout << "x como una letra : " << x.letra << endl; 
-
-    enum dias_semana {lunes = 'l', martes= 'm', miercoles= 'y'};
-    dias_semana dia= martes;
-
-    cout << dia;
-
+    p->Saludar();
+    p2->Saludar(); 
 }
