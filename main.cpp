@@ -3,15 +3,16 @@
 
 using namespace std;
 
-struct Persona {
-    string nombre;
-    int edad;
-};
 
 int main(){
-    Persona *p = new Persona();
-    p->nombre = "Noe";
-    p->edad = 23; 
-    cout << p->nombre << endl; 
-    cout << p->edad;  
+    union numero_letra {
+        int numero;
+        char letra;
+    };
+
+    numero_letra x = {'a'};
+
+    cout << "x como un numero : " << x.numero << endl;
+    cout << "x como una letra : " << x.letra; 
+
 }
