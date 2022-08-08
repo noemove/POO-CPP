@@ -13,6 +13,11 @@ int main(){
     numero_letra x = {'a'};
 
     cout << "x como un numero : " << (char) x.numero << endl;
-    cout << "x como una letra : " << x.letra; 
+    cout << "x como una letra : " << x.letra << endl; 
+
+    enum dias_semana {lunes, martes, miercoles};
+    dias_semana dia= martes;
+
+    cout << dia;
 
 }
