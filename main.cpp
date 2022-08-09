@@ -8,13 +8,16 @@ private:
     string nombre;
     int edad;
 public:
-    Persona(string n);
+    Persona(string nombre, int edad);
     ~Persona();
     void Saludar();
+    void SetterNombre(string nombre);
+    void SetterEdad(int edad);
 };
 
-Persona::Persona(string n){
-        nombre=n;
+Persona::Persona(string nombre, int edad){
+        this->nombre=nombre;
+        this->edad=edad;
     }
 
 Persona::~Persona(){
@@ -23,13 +26,22 @@ Persona::~Persona(){
     }
 
 void Persona::Saludar(){
-        cout << nombre << " esta saludando" << endl;
+        cout << nombre << " esta saludando con " << edad << " anios de edad " << endl;
     }
 
+void Persona::SetterNombre(string nombre){
+    this->nombre=nombre;
+}
+
+void Persona::SetterEdad(int edad){
+    this->edad=edad;
+}
+
 int main(){
-    Persona *p= new Persona("Pedro");
-    Persona *p2= new Persona("Maria"); 
+    Persona *p= new Persona("Pedro", 14);
+ 
+    p->SetterNombre("Noe");
+    p->SetterEdad(23);
 
     p->Saludar();
-    p2->Saludar(); 
 }
