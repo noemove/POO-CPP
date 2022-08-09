@@ -14,8 +14,8 @@ class Animal {
         string obtenerAlimento() {
             return alimento;
         }
-        void comer() {
-            cout << "Este animal está comiendo " << alimento << "... ñom ñom" << endl;
+        void comer(Animal *a) {
+            cout << "Este animal está comiendo " << a->alimento << "... ñom ñom" << endl;
         }
 };
 
@@ -69,17 +69,16 @@ int main() {
     Carnivoro *c = new Carnivoro();
     Omnivoro *o =new Omnivoro();
 
-    cout << "Numero de animales " << Animal::obtenerNumeroAnimales() << endl;
-    a->comer();  
+    cout << "Numero de animales " << Animal::obtenerNumeroAnimales() << endl; 
 
     h->pastar();
-    h->comer();
+    //h->comer();
+    a->comer(h);
 
     c->cazar();
-    c->comer();
+    a->comer(c);
+    //c->comer();
 
-    cout<< "Omnivoro: ";
-    o->Herviboro::comer();
     o->comer(); 
 
     delete a;
