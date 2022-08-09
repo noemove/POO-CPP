@@ -4,27 +4,31 @@
 using namespace std;
 
 class Persona {
-public:
+private:
     string nombre;
     int edad;
-    Persona(string n){
+public:
+    Persona(string n);
+    ~Persona();
+    void Saludar();
+};
+
+Persona::Persona(string n){
         nombre=n;
     }
-    ~Persona(){
+
+Persona::~Persona(){
         cout << "desctructor" << endl;
         //se utiliza el destructor 
     }
-    void Saludar(){
+
+void Persona::Saludar(){
         cout << nombre << " esta saludando" << endl;
     }
-
-};
 
 int main(){
     Persona *p= new Persona("Pedro");
     Persona *p2= new Persona("Maria"); 
-
-    delete p2;
 
     p->Saludar();
     p2->Saludar(); 
