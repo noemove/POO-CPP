@@ -3,52 +3,66 @@
 
 using namespace std;
 
-class Persona {
-private:
-    string nombre;
-    int edad;
-public:
-    static int numeroPersona;
-    Persona(string nombre, int edad);
-    ~Persona();
-    void Saludar();
-    void SetterNombre(string nombre);
-    void SetterEdad(int edad);
+class Animal {
+    protected:
+        static int numeroAnimales;
+        string alimento;
+    public:
+        Animal();
+        ~Animal();
+        static int obtenerNumeroAnimales();
+        string obtenerAlimento() {
+            return alimento;
+        }
+        void comer() {
+            cout << "Este animal está comiendo " << alimento << "... ñom ñom" << endl;
+        }
 };
 
-Persona::Persona(string nombre, int edad){
-        this->nombre=nombre;
-        this->edad=edad;
-        numeroPersona+=1;
-    }
+int Animal::numeroAnimales = 0;
 
-Persona::~Persona(){
-        cout << "desctructor" << endl;
-        //se utiliza el destructor 
-    }
-
-void Persona::Saludar(){
-        cout << nombre << " esta saludando con " << edad << " anios de edad " << endl;
-    }
-
-void Persona::SetterNombre(string nombre){
-    this->nombre=nombre;
+Animal::Animal() {
+    cout << "Creando nuevo animal..." << endl;
+    numeroAnimales += 1;
 }
 
-void Persona::SetterEdad(int edad){
-    this->edad=edad;
+Animal::~Animal() {
+    cout << "Borrando animal..." << endl;
+    numeroAnimales -= 1;
 }
 
-int Persona::numeroPersona=0;
+int Animal::obtenerNumeroAnimales() {
+    return numeroAnimales;
+}
 
-int main(){
-    Persona *p= new Persona("Pedro", 14);
-    Persona *p2= new Persona("Pedro", 14);
-    Persona *p3= new Persona("Pedro", 14);
+class Herviboro : public Animal {
+    public:
+        Herviboro() : Animal() {
+            this->alimento = "plantas";
+        }
+        void pastar() {
+            cout << "Este animal está pastando..." << endl;
+        }
+};
 
-    p->SetterNombre("Noe");
-    p->SetterEdad(23);
+class Carnivoro : public Animal {
+    public:
+        Carnivoro() : Animal() {
+            this->alimento = "carne";
+        }
+        void cazar() {
+            cout << "Este animal está cazando..." << endl;
+        }
+};
 
-    cout <<endl <<"numero de personas " << Persona::numeroPersona << endl;
-    p->Saludar();
+int main() {
+    Animal *a = new Animal();
+    Herviboro *h = new Herviboro();
+    Carnivoro *c = new Carnivoro();
+    cout << "Numero de animales " << Animal::obtenerNumeroAnimales() << endl;
+    a->comer();    
+    h->pastar();
+    c->cazar();
+    delete a;
+    cout << "Numero de animales " << Animal::obtenerNumeroAnimales() << endl;    
 }
